@@ -1,0 +1,122 @@
+<template>
+  <div id="app">
+    <div v-html="html"></div>
+   
+   
+  </div>
+</template>
+
+<script>
+// import HelloWorld from './components/HelloWorld.vue'
+import soundBtn  from './mixins/soundBtn'
+export default {
+    mixins: [soundBtn]
+//    data() {
+//     return {
+//       hover:false,
+//       html: '<img id="zb-1" class="sound-btn"     src="./images/sound-off1.png">' 
+//     }
+//   },
+//   name: 'App',
+
+//   //   created () {
+//   //    window.playFunc = this.playFunc.bind(this);
+//   // },
+//   // methods: {
+//   //   playFunc(a) {
+//   //     var audio = new Audio(require(`./assets/zb-${a}.mp3`))
+//   //     audio.play()
+//   //   }
+//   // },
+//   mounted(){
+
+
+//     let buttonSound = document.querySelectorAll('.sound-btn');
+//     // console.log(buttonSound);
+
+//     let isPlaying = false;
+//     let currentButtonGlobal;
+//     let timeouts = [];
+
+//     function animateButton(btn) {
+//         for (let i = 1; i < 4; i++) {
+//             (function(i) {
+//                 timeouts.push(setTimeout(function() {
+//                     console.log('value is ', i);
+//                     btn.setAttribute('src', `images/sound-on${i}.png`);
+//                 }, `${i}00`));
+//             })(i);
+//         }
+//         if (isPlaying) {
+//             // timeouts.push(setTimeout(animateButton, 300, currentButtonGlobal));
+//             // console.log(timeouts);
+//             setTimeout(animateButton, 400, currentButtonGlobal);
+//         } else {
+//             currentButtonGlobal.setAttribute('src', 'images/sound-off1.png');
+//             console.log(currentButtonGlobal);
+//             // for (let i = 0; i < timeouts.length; i++) {
+//             //     clearTimeout(timeouts[i]);
+//             // }
+//             clearTimeout(animateButton);
+//             console.log('Clear Timeout' + timeouts);
+//         }
+//     }
+
+//     function playSound() {
+//         let id = this.getAttribute('id');
+
+//         // let allAudiosCreated = document.getElementsByTagName('audio');
+//         // console.log(allAudiosCreated);
+
+//         let currentAudio = new Audio(`sounds/${id}.mp3`);
+//         let currentButton = this;
+
+//         currentButtonGlobal = currentButton;
+
+//         if (!isPlaying) {
+//             isPlaying = true;
+//             currentAudio.play();
+
+//             animateButton(currentButtonGlobal);
+
+//             currentAudio.onended = () => {
+//                 // currentButtonGlobal.setAttribute('src', 'images/sound-off1.png');
+
+//                 isPlaying = false;
+//                 console.log('End');
+//                 console.log('isPlaying = ' + isPlaying);
+//             };
+//         }
+
+//         // console.log(new Audio(sounds/${id}.mp3));
+//     }
+
+//     buttonSound.forEach(btn => {
+//         btn.addEventListener('mouseover', function() {
+//             btn.setAttribute('src', 'images/sound-off2.png');
+//         })
+
+//         btn.addEventListener('mouseout', function() {
+//             btn.setAttribute('src', 'images/sound-off1.png');
+//         })
+
+//         // btn.addEventListener('click', function() {
+//         //     new Audio('sounds/Underline.mp3').play();
+//         // })
+
+//         btn.addEventListener('click', playSound);
+//     });
+// }
+}
+</script>
+
+<style>
+/* #app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+  margin-top: 60px;
+} */
+</style>
