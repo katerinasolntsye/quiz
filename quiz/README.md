@@ -1,4 +1,4 @@
-# testproject
+# quiz
 
 ## Project setup
 ```
