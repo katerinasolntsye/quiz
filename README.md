@@ -1,1 +1,2 @@
-# quiz
+npm i 
+npm run serve
