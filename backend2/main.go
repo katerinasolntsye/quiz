@@ -20,14 +20,14 @@ func main() {
 	// initialize our database connection
 	initDB()
 	// start the server on port 8000
-	log.Fatal(http.ListenAndServe(":8000", nil))
+	log.Fatal(http.ListenAndServe(":8001", nil))
 }
 
 func initDB() {
 	var err error
 	// Connect to the postgres db
 	//you might have to change the connection string to add your database credentials
-	db, err = sql.Open("postgres", "dbname=testsignup host=localhost port=5432 user=root password=12312 sslmode=disable")
+	db, err = sql.Open("postgres", "dbname=habrdb host=localhost port=5432 user=habrpguser password=pgpwd4habr sslmode=disable")
 	// dbname=mydb sslmode=disable
 	// dbname=testsignup sslmode=disable
 	// "postgres://root:12312@localhost:5432/test_db"

@@ -14,6 +14,7 @@ import (
 type Credentials struct {
 	Password string `json:"password", db:"password"`
 	Username string `json:"username", db:"username"`
+	Email    string `json:"email", db:"email"`
 }
 
 // func enableCors(w *http.ResponseWriter) {
@@ -36,7 +37,7 @@ func Signup(w http.ResponseWriter, r *http.Request) {
 	hashedPassword, err := bcrypt.GenerateFromPassword([]byte(creds.Password), 8)
 
 	// Next, insert the username, along with the hashed password into the database
-	if _, err = db.Query("insert into users values ($1, $2)", creds.Username, string(hashedPassword)); err != nil {
+	if _, err = db.Query("insert into users values ($1, $2, $3)", creds.Username, string(hashedPassword), creds.Email); err != nil {
 		log.Print(err)
 		// If there is any issue with inserting into the database, return a 500 error
 		w.WriteHeader(http.StatusInternalServerError)
@@ -66,9 +67,8 @@ func Signin(w http.ResponseWriter, r *http.Request) {
 		w.WriteHeader(http.StatusInternalServerError)
 		return
 	}
-	// We create another instance of `Credentials` to store the credentials we get from the database
+
 	storedCreds := &Credentials{}
-	// Store the obtained password in `storedCreds`
 	err = result.Scan(&storedCreds.Password)
 	if err != nil {
 		// If an entry with the username does not exist, send an "Unauthorized"(401) status
@@ -80,13 +80,34 @@ func Signin(w http.ResponseWriter, r *http.Request) {
 		w.WriteHeader(http.StatusInternalServerError)
 		return
 	}
+	email := db.QueryRow("select email from users where username=$1", creds.Username)
+	if err != nil {
+		// If there is an issue with the database, return a 500 error
+		w.WriteHeader(http.StatusInternalServerError)
+		return
+	}
+	// We create another instance of `Credentials` to store the credentials we get from the database
 
+	// Store the obtained password in `storedCreds`
+	storedCreds.Username = creds.Username
+	err = email.Scan(&storedCreds.Email)
+
+	if err != nil {
+		// If an entry with the username does not exist, send an "Unauthorized"(401) status
+		if err == sql.ErrNoRows {
+			w.WriteHeader(http.StatusUnauthorized)
+			return
+		}
+		// If the error is of any other type, send a 500 status
+		w.WriteHeader(http.StatusInternalServerError)
+		return
+	}
 	// Compare the stored hashed password, with the hashed version of the password that was received
 	if err = bcrypt.CompareHashAndPassword([]byte(storedCreds.Password), []byte(creds.Password)); err != nil {
 		// If the two passwords don't match, return a 401 status
 		w.WriteHeader(http.StatusUnauthorized)
 	}
-
+	json.NewEncoder(w).Encode(storedCreds)
 	// If we reach this point, that means the users password was correct, and that they are authorized
 	// The default 200 status is sent
 }
