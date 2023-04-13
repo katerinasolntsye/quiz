@@ -1,0 +1,110 @@
+<template>
+  <div class="main">
+  <main>
+      <h1>Урок 5. Алфавит</h1>
+        <div id="start-cards-1" class="start-quiz task_title">
+			<p>Карточки 1<span class="start-quiz-down-tip">&#129171;</span></p>
+		</div>
+		<div id="close-cards-1" class="close-quiz task_title">
+			<p>Карточки 1<span class="start-quiz-up-tip">&#129169;</span></p>
+		</div>
+		<CardsComponent id="cards-1" class="quiz" :cards-data="cards1" />
+      <div id="start-quiz-1" class="start-quiz task_title">
+        <p>Тест 1<span class="start-quiz-down-tip">&#129171;</span></p>
+      </div>
+      <div id="close-quiz-1" class="close-quiz task_title">
+        <p>Тест 1<span class="start-quiz-up-tip">&#129169;</span></p>
+      </div>
+      <QuizComponent id="quiz-1" class="quiz" :quiz-data="questions1" />
+        <div id="start-writing-1" class="start-quiz task_title">
+			<p>Письмо 1<span class="start-quiz-down-tip">&#129171;</span></p>
+		</div>
+		<div id="close-writing-1" class="close-quiz task_title">
+			<p>Письмо 1<span class="start-quiz-up-tip">&#129169;</span></p>
+		</div>
+		<WritingComponent id="writing-1" class="quiz" :writing-data="writing1" />
+  </main>
+  </div>
+</template>
+
+<script>
+import CardsComponent from './CardsComponent.vue'
+import QuizComponent from './QuizComponent.vue'
+import WritingComponent from './WritingComponent.vue'
+import cardsBtn  from '../mixins/cardsBtn'
+import quizBtn  from '../mixins/quizBtn'
+import writingBtn  from '../mixins/writingBtn'
+
+export default {
+	mixins: [
+		quizBtn,
+		cardsBtn,
+        writingBtn
+	],
+  components: {
+	CardsComponent,
+    QuizComponent,
+    WritingComponent
+  },
+  data() {
+    return {
+        cards1: [
+            {
+				question: "ААА",
+				card: "ААА",
+				answer: "ААА",
+			},
+        ],
+      questions1: [
+        {
+          question: "ААА",
+          answers: {
+            a: "ААА",
+            b: "ААА",
+            c: "ААА",
+            d: "ААА"
+          },
+          correctAnswer: "a",
+        },
+      ],
+        writing1: [
+            {
+				question: "ААА",
+                answers: [
+                    "А",
+                    "АА",
+                    "ААА",
+                    "АААА"
+                ],
+                correctAnswer: "ААА",
+			},
+        ],
+    }
+  },
+  mounted() {  
+    document.title = "FullEng – Урок 5. Алфавит";
+
+    document.querySelector(".main").oncopy = function logCopy(event) {
+        event.preventDefault();
+    }
+      
+    document.querySelector(".main").oncontextmenu = function noselect(event) {
+        event.preventDefault();
+    };
+  },
+}
+</script>
+
+<style scoped>
+.main {
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+  flex: 1 0 auto;
+  background-image: url(../assets/background.png);
+  text-align: justify;
+  user-select: none;
+}
+</style>
