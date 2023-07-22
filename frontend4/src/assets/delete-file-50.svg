@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16.74 19.81" role="img" aria-label="Удалить файл">
+  <title>Удалить файл</title>
+  <g stroke="#808080" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.3px">
+    <path class="cls-1" d="m5.68,2.68s-.3-1.69,1.15-2.02c1.66-.03,3.09,0,3.09,0,0,0,1.55.16,1.15,2.02"/>
+    <path class="cls-1" d="m16.04,6.01c.45-2.93-1.99-3.19-1.99-3.19,0,0-7.99-.05-11.11,0C.19,2.99.68,6.01.68,6.01h15.35Z"/>
+    <path class="cls-1" d="m1.88,6.1l.98,11.32s.14,1.64,1.57,1.71,7.76,0,7.76,0c0,0,1.59-.07,1.71-1.55s1.01-11.48,1.01-11.48H1.88Z"/>
+    <line class="cls-1" x1="5.16" y1="8.35" x2="5.7" y2="17.02"/>
+    <line class="cls-1" x1="8.39" y1="8.35" x2="8.39" y2="17.02"/>
+    <line class="cls-1" x1="11.58" y1="8.35" x2="11.07" y2="17.02"/>
+  </g>
+</svg>
