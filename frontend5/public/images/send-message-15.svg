@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19.5 19.5" role="img" aria-label="Отправить сообщение">
+  <title>Отправить сообщение</title>
+  <g stroke="#262626" fill="none" fill-rule="evenodd" stroke-linejoin="round" stroke-width="1.5px">
+    <polygon class="cls-2" stroke-linecap="round" points="8.16 11.34 11.34 18.75 18.75 .75 .75 8.16 8.16 11.34"/>
+    <line class="cls-1" x1="7.75" y1="11.75" x2="18.75" y2=".75"/>
+  </g>
+</svg>
