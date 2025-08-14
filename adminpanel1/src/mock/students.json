@@ -1,0 +1,54 @@
+{
+    "students": [{
+            "id": "1234567890",
+            "email": "ivanivanov@yandex.ru",
+            "name": "Иван",
+            "surname": "Иванов",
+            "birth_date": "01.01.2000",
+            "country": "Россия",
+            "city": "Москва",
+            "tel": "+79991112233",
+            "google": "ivanivanov@gmail.com",
+            "vkontakte": "@ivanivanov",
+            "telegram": "@ivanivanov",
+            "created_at": "01.01.2025",
+            "timezone": "+3",
+            "courses_number": "2",
+            "сompleted_courses": "1"
+        },
+        {
+            "id": "1234567890",
+            "email": "petrpetrov@yandex.ru",
+            "name": "Пётр",
+            "surname": "Петров",
+            "birth_date": "01.01.2000",
+            "country": "Россия",
+            "city": "Москва",
+            "tel": "+79991112233",
+            "google": "petrpetrov@gmail.com",
+            "vkontakte": "@petrpetrov",
+            "telegram": "@petrpetrov",
+            "created_at": "01.01.2025",
+            "timezone": "+3",
+            "courses_number": "1",
+            "сompleted_courses": "1"
+        },
+        {
+            "id": "1234567890",
+            "email": "sidorsidorov@yandex.ru",
+            "name": "Сидор",
+            "surname": "Сидоров",
+            "birth_date": "01.01.2000",
+            "country": "Россия",
+            "city": "Москва",
+            "tel": "+79991112233",
+            "google": "sidorsidorov@gmail.com",
+            "vkontakte": "@sidorsidorov",
+            "telegram": "@sidorsidorov",
+            "created_at": "01.01.2025",
+            "timezone": "+3",
+            "courses_number": "1",
+            "сompleted_courses": "0"
+        }
+    ]
+}
